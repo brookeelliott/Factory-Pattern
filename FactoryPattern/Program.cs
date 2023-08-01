@@ -4,7 +4,19 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+
+            int userInputInt;
+            bool userInput = false;
+
+            do
+            {
+                Console.WriteLine("Hello, how many wheels do you want?");
+                userInput = int.TryParse(Console.ReadLine(), out userInputInt);
+                
+            } while (userInput == false);
+
+            var vehicle = VehicleFactory.GetVehicle(userInputInt);
+            vehicle.Build();
         }
     }
 }
